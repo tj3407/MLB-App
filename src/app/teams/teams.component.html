@@ -1,0 +1,26 @@
+<section>
+  <h3>{{ data.league?.name }} 2017-2018 Season</h3>
+  <div *ngFor='let i of data.league?.season?.leagues'>
+    <h4> {{ i?.name }} </h4>
+    <div *ngFor='let j of i.divisions'>
+      <table class="table table-hover table-sm">
+        <thead class="table-dark">
+          <tr>
+            <td>{{ j?.name }}</td>
+            <td>Wins</td>
+            <td>Losses</td>
+            <td>Games Back</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let k of j.teams' [routerLink]='[k?.id]'>
+            <td>{{ k?.market }} {{ k?.name }}</td>
+            <td>{{ k?.win }}</td>
+            <td>{{ k?.loss }}</td>
+            <td>{{ k?.games_back }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
