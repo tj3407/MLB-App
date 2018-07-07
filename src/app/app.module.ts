@@ -12,13 +12,15 @@ import { PlayerComponent } from './player/player.component';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TeamsComponent,
     PlayerlistComponent,
-    PlayerComponent
+    PlayerComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
