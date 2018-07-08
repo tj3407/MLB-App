@@ -1,3 +1,23 @@
-<p>
-  player works!
-</p>
+<h4>{{ player?.player?.full_name }}</h4>
+<p>Date of Birth: {{ player?.player?.birthdate }}</p>
+<p>Primary Position: {{ player?.player?.primary_position }}</p>
+<p>College: {{ player?.player?.college }}</p>
+<table class="table table-sm table-hover">
+  <thead class="table-dark">
+    <tr>
+      <td>Year</td>
+      <td>BA</td>
+      <td>HR</td>
+      <td>RBIs</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let data of player?.player?.seasons; let i = index'>
+      <td *ngIf="data?.year !== player?.player?.seasons[i + 1]?.year">{{ data?.year }}</td>
+      <td *ngIf="data?.year !== player?.player?.seasons[i + 1]?.year">{{ data?.totals?.statistics?.hitting?.overall?.avg }}</td>
+      <td *ngIf="data?.year !== player?.player?.seasons[i + 1]?.year">{{ data?.totals?.statistics?.hitting?.overall?.onbase?.hr }}</td>
+      <td *ngIf="data?.year !== player?.player?.seasons[i + 1]?.year">{{ data?.totals?.statistics?.hitting?.overall?.rbi }}</td>
+    </tr>
+  </tbody>
+</table>
+

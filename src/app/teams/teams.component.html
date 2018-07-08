@@ -1,5 +1,4 @@
 <section>
-  <h3>{{ data.league?.name }} 2017-2018 Season</h3>
   <div *ngFor='let i of data.league?.season?.leagues'>
     <h4> {{ i?.name }} </h4>
     <div *ngFor='let j of i.divisions'>

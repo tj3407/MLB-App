@@ -16,6 +16,9 @@ export class DataService {
   private basePlayers =
   'http://api.sportradar.us/mlb/trial/v6.5/en/teams';
 
+  private basePlayer =
+  'http://api.sportradar.us/mlb/trial/v6.5/en/players';
+
   constructor(private http: HttpClient, private _http: Http) { }
 
   getTeams() {
@@ -26,5 +29,10 @@ export class DataService {
   getPlayers(id) {
     console.log(id);
     return this.http.get(`${this.basePlayers}/${id}/profile.json?api_key=xksck7ynayqv8zxpu3t67ted`);
+  }
+
+  getPlayer(id) {
+    console.log(id);
+    return this.http.get(`${this.basePlayer}/${id}/profile.json?api_key=xksck7ynayqv8zxpu3t67ted`);
   }
 }

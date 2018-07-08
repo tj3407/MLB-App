@@ -1,4 +1,5 @@
 <section>
+  <h3>{{ players?.market }} {{ players?.name }}</h3>
     <table class="table table-hover table-sm">
       <thead class="table-dark">
         <tr>
@@ -8,7 +9,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor='let player of players?.players'>
+        <tr *ngFor='let player of players?.players' [routerLink]='["/player", player?.id]'>
           <td>{{ player?.preferred_name }}</td>
           <td>{{ player?.last_name }}</td>
           <td>{{ player?.position }}</td>
