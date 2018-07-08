@@ -4,19 +4,19 @@
     <div *ngFor='let j of i.divisions'>
       <table class="table table-hover table-sm">
         <thead class="table-dark">
-          <tr>
-            <td>{{ j?.name }}</td>
-            <td>Wins</td>
-            <td>Losses</td>
-            <td>Games Back</td>
+          <tr class="d-flex">
+            <td class="col-4">{{ j?.name }}</td>
+            <td class="col-2">Wins</td>
+            <td class="col-2">Losses</td>
+            <td class="col-2">Games Back</td>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor='let k of j.teams' [routerLink]='[k?.id]'>
-            <td>{{ k?.market }} {{ k?.name }}</td>
-            <td>{{ k?.win }}</td>
-            <td>{{ k?.loss }}</td>
-            <td>{{ k?.games_back }}</td>
+          <tr *ngFor='let k of j.teams' [routerLink]='[k?.id]' class="d-flex">
+            <td class="col-sm-4">{{ k?.market }} {{ k?.name }}</td>
+            <td class="col-sm-2">{{ k?.win }}</td>
+            <td class="col-sm-2">{{ k?.loss }}</td>
+            <td class="col-sm-2">{{ k?.games_back }}</td>
           </tr>
         </tbody>
       </table>
