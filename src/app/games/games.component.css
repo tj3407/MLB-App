@@ -1,0 +1,11 @@
+#box {
+  border: 1px solid black;
+  display: inline-block;
+  vertical-align: top;
+  width: 250px;
+  height: 120px;
+  text-align: center;
+  padding: 10px;
+  margin: 20px;
+  font-size: .9em;
+}

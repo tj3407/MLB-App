@@ -13,6 +13,8 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { NavigationComponent } from './navigation/navigation.component';
+import { GamesComponent } from './games/games.component';
+import { BoxscoreComponent } from './boxscore/boxscore.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { NavigationComponent } from './navigation/navigation.component';
     TeamsComponent,
     PlayerlistComponent,
     PlayerComponent,
-    NavigationComponent
+    NavigationComponent,
+    GamesComponent,
+    BoxscoreComponent
   ],
   imports: [
     BrowserModule,

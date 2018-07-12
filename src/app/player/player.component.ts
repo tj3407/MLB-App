@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-import { Team } from '../team';
 import { DataService } from '../data.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
 @Component({

@@ -1,0 +1,17 @@
+<section>
+  <h3>{{ weekDay }}</h3>
+  <div>
+    <div *ngFor="let game of games?.league?.games" id="box">
+      <table class="table table-sm">
+        <tbody>
+          <tr>
+            <td><p>{{ game?.game?.away?.market }} {{ game?.game?.away?.name }}</p> <p>{{ game?.game?.away?.runs }}</p></td>
+            <td><p>{{ game?.game?.home?.market }} {{ game?.game?.home?.name }}</p> <p>{{ game?.game?.home?.runs }}</p></td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- <p>{{ game?.game?.away?.market }} {{ game?.game?.away?.name }}</p><p>{{ game?.game?.away?.runs }}</p>
+      <p>{{ game?.game?.home?.market }} {{ game?.game?.home?.name }}</p><p>{{ game?.game?.home?.runs }}</p> -->
+    </div>
+  </div>
+</section>
