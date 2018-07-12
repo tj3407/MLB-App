@@ -10,6 +10,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "scripts": {
+    "start": "node server.js"
+  },
   "private": true,
   "main": "server.js",
   "dependencies": {
