@@ -33,7 +33,9 @@ app.use(parser.urlencoded({ extended: true }));
 //   res.sendFile(path.resolve('dist/index.html'))
 // });
 
-
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/dist/index.html'));
+});
 
 // - - - - = = = = Server Listener = = = = - - - -
 const port = process.env.PORT || 8000;
