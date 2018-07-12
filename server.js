@@ -13,7 +13,7 @@ const parser = require('body-parser');
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
 
-// // Mysportsfeed
+// Mysportsfeed
 // var MySportsFeeds = require("mysportsfeeds-node");
 // var msf = new MySportsFeeds("1.2", true);
 // msf.authenticate("djxtremor", "tjdev456");
