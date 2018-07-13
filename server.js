@@ -1,6 +1,7 @@
 // Express
 const express = require('express');
 const app = express();
+const request = require('request');
 
 // Path
 const path = require('path');
@@ -13,25 +14,6 @@ const parser = require('body-parser');
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
 
-// Mysportsfeed
-// var MySportsFeeds = require("mysportsfeeds-node");
-// var msf = new MySportsFeeds("1.2", true);
-// msf.authenticate("djxtremor", "tjdev456");
-
-// const leagueController = {
-//   index: (request, response) => {
-//     console.log('requesting api')
-//     msf.getData('mlb', '2018-regular', 'overall_team_standings', 'json', {})
-//       .then(league => response.json(league))
-//       .catch(error => console.log(error))
-//   }
-// }
-
-// app
-//   .get('/', leagueController.index)
-//   .all('*', (req, res, next) => {
-//   res.sendFile(path.resolve('dist/index.html'))
-// });
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname + '/dist/index.html'));

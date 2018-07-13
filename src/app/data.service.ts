@@ -11,21 +11,21 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class DataService {
   private base =
-  'http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/standings.json?api_key=xksck7ynayqv8zxpu3t67ted&callback=JSONP_CALLBACK';
+  'https://cors-anywhere.herokuapp.com/http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/standings.json?api_key=xksck7ynayqv8zxpu3t67ted&callback=JSONP_CALLBACK';
 
   private basePlayers =
-  'http://api.sportradar.us/mlb/trial/v6.5/en/teams';
+  'https://cors-anywhere.herokuapp.com/http://api.sportradar.us/mlb/trial/v6.5/en/teams';
 
   private basePlayer =
-  'http://api.sportradar.us/mlb/trial/v6.5/en/players';
+  'https://cors-anywhere.herokuapp.com/http://api.sportradar.us/mlb/trial/v6.5/en/players';
 
   private baseSchedule =
-  'http://api.sportradar.us/mlb/trial/v6.5/en/games';
+  'https://cors-anywhere.herokuapp.com/http://api.sportradar.us/mlb/trial/v6.5/en/games';
 
   constructor(private http: HttpClient, private _http: Http) { }
 
+  // this.teams.next(teams.json()
   getTeams() {
-    console.log('service');
     return this.http.get(this.base);
   }
 
