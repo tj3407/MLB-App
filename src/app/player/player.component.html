@@ -47,10 +47,10 @@
 
 <p>Splits {{ player?.player?.seasons[0]?.year }}</p>
 <div *ngFor="let data2 of player?.player?.seasons[0]?.totals?.splits?.hitting?.overall">
-  <table class="table table-sm table-hover" *ngFor="let stats of objectVals(data2)">
+  <table class="table table-sm table-hover" *ngFor="let stats of objectVals(data2); let i = index">
     <thead class="table-dark">
       <tr>
-        <td>Value</td>
+        <td>{{ objectKeys(data2)[i] }}</td>
         <td>AB</td>
         <td>BA</td>
         <td>OBP</td>
