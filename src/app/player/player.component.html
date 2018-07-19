@@ -1,7 +1,9 @@
 <h4>{{ player?.player?.full_name }}</h4>
+<p>#{{ player?.player?.jersey_number }} | Bats: {{ player?.player?.bat_hand }} | Throws: {{ player?.player?.throw_hand }}</p>
 <p>Date of Birth: {{ player?.player?.birthdate }}</p>
 <p>Primary Position: {{ player?.player?.primary_position }}</p>
 <p>College: {{ player?.player?.college }}</p>
+<p>Player Summary: </p>
 <table class="table table-sm table-hover">
   <thead class="table-dark">
     <tr>
@@ -43,3 +45,47 @@
   </tbody>
 </table>
 
+<p>Splits {{ player?.player?.seasons[0]?.year }}</p>
+<div *ngFor="let data2 of player?.player?.seasons[0]?.totals?.splits?.hitting?.overall">
+  <table class="table table-sm table-hover" *ngFor="let stats of objectVals(data2)">
+    <thead class="table-dark">
+      <tr>
+        <td>Value</td>
+        <td>AB</td>
+        <td>BA</td>
+        <td>OBP</td>
+        <td>OPS</td>
+        <td>SLG</td>
+        <td>R</td>
+        <td>BB</td>
+        <td>SO</td>
+        <td>H</td>
+        <td>2B</td>
+        <td>3B</td>
+        <td>HR</td>
+        <td>RBIs</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stats2 of stats">
+        <td *ngIf='!stats2?.value && !stats2?.name'>Total</td>
+        <td *ngIf='getMonth(stats2?.value)'>{{ getMonth(stats2?.value) }}</td>
+        <td *ngIf='stats2?.value && !getMonth(stats2?.value)'>{{ stats2?.value }}</td>
+        <td *ngIf='stats2?.name'>{{ stats2?.name }}</td>
+        <td>{{ stats2?.ab }}</td>
+        <td>{{ stats2?.avg }}</td>
+        <td>{{ stats2?.obp }}</td>
+        <td>{{ stats2?.ops }}</td>
+        <td>{{ stats2?.slg }}</td>
+        <td>{{ stats2?.runs }}</td>
+        <td>{{ stats2?.bb }}</td>
+        <td>{{ stats2?.ktotal }}</td>
+        <td>{{ stats2?.h }}</td>
+        <td>{{ stats2?.d }}</td>
+        <td>{{ stats2?.t }}</td>
+        <td>{{ stats2?.hr }}</td>
+        <td>{{ stats2?.rbi }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

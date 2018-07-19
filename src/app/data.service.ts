@@ -3,8 +3,6 @@ import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
-import { Team } from './team';
-import { Jsonp } from '@angular/http';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/map';
 
@@ -20,6 +18,9 @@ export class DataService {
   'https://cors-anywhere.herokuapp.com/http://api.sportradar.us/mlb/trial/v6.5/en/players';
 
   private baseSchedule =
+  'https://cors-anywhere.herokuapp.com/http://api.sportradar.us/mlb/trial/v6.5/en/games';
+
+  private baseBoxScore =
   'https://cors-anywhere.herokuapp.com/http://api.sportradar.us/mlb/trial/v6.5/en/games';
 
   constructor(private http: HttpClient, private _http: Http) { }
@@ -42,5 +43,9 @@ export class DataService {
   getSchedule(date) {
     console.log(date);
     return this.http.get(`${this.baseSchedule}/${date}/boxscore.json?api_key=xksck7ynayqv8zxpu3t67ted`);
+  }
+
+  getBoxScore(gameId) {
+    return this.http.get(`${this.baseBoxScore}/${gameId}/summary.json?api_key=xksck7ynayqv8zxpu3t67ted`);
   }
 }

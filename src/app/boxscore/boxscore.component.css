@@ -1,0 +1,24 @@
+.box {
+  border: 1px solid black;
+  display: inline-block;
+  width: 50px;
+  vertical-align: top;
+  padding: 15px;
+  margin: none;
+}
+.team {
+  display: inline-block;
+  width: 350px;
+  vertical-align: top;
+  padding: 15px;
+}
+.boxHead {
+  display: inline-block;
+  width: 50px;
+  vertical-align: top;
+  padding-left: 15px;
+  margin: none;
+}
+h4 {
+  display: inline;
+}

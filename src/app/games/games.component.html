@@ -2,7 +2,7 @@
   <h3>{{ weekDay }}</h3>
   <div>
     <div *ngFor="let game of games?.league?.games" id="box">
-      <table class="table table-sm">
+      <table class="table table-sm" [routerLink]='["boxscore", game?.game?.id]'>
         <tbody>
           <tr>
             <td><p>{{ game?.game?.away?.market }} {{ game?.game?.away?.name }}</p> <p>{{ game?.game?.away?.runs }}</p></td>

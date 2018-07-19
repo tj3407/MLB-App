@@ -15,6 +15,7 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { NavigationComponent } from './navigation/navigation.component';
 import { GamesComponent } from './games/games.component';
 import { BoxscoreComponent } from './boxscore/boxscore.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { BoxscoreComponent } from './boxscore/boxscore.component';
     HttpModule,
     FormsModule,
     HttpClientModule,
-    JsonpModule
+    JsonpModule,
+    CommonModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
