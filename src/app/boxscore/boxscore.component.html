@@ -1,22 +1,61 @@
 <section>
-  <div>
-    <div class='team'></div>
-    <div class='boxHead'>R</div>
-    <div class='boxHead'>H</div>
-    <div class='boxHead'>E</div>
-  </div>
-  <div>
-    <div class='team'><h4 [routerLink]='["/", boxScore?.game?.away?.id]'>{{ boxScore?.game?.away?.market }} {{ boxScore?.game?.away?.name }}</h4> ({{ boxScore?.game?.away?.win }} - {{ boxScore?.game?.away?.loss }})</div>
-    <div class='box'>{{ boxScore?.game?.away?.runs }}</div>
-    <div class='box'>{{ boxScore?.game?.away?.hits }}</div>
-    <div class='box'>{{ boxScore?.game?.away?.errors }}</div>
-  </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+  <div class="container">
+    <div *ngIf=" boxScore?.game?.outcome?.current_inning_half === 'B' "><p>Bot {{ boxScore?.game?.outcome?.current_inning }}</p></div>
+    <div *ngIf=" boxScore?.game?.outcome?.current_inning_half === 'T' "><p>Top {{ boxScore?.game?.outcome?.current_inning }}</p></div>
+    <div *ngIf=" boxScore?.game?.final "><p>Final</p></div>
+    <div class="row">
+      <div class="col-sm-3">
+        <div>
+          <div class='team'><h4 [routerLink]='["/", boxScore?.game?.away?.id]'>{{ boxScore?.game?.away?.market }} </h4><h6>{{ boxScore?.game?.away?.name }}</h6> <p>({{ boxScore?.game?.away?.win }} - {{ boxScore?.game?.away?.loss }})</p></div>
+          <div class='box'><h5>{{ boxScore?.game?.away?.runs }}</h5></div>
+        </div>
+      </div>
+      <div class="col-sm-1"></div>
+      <div class="col-sm-4">
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <td></td>
+              <td *ngFor="let i of [1,2,3,4,5,6,7,8,9]">{{ i }}</td>
+              <td></td>
+              <td>R</td>
+              <td>H</td>
+              <td>E</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ boxScore?.game?.away?.abbr }}</td>
+              <td *ngFor=" let score of [0,1,2,3,4,5,6,7,8] "><span *ngIf=" boxScore?.game?.away?.scoring && boxScore?.game?.away?.scoring[score]?.runs >= 0 ">{{ boxScore?.game?.away?.scoring[score]?.runs }}</span><span *ngIf=" !boxScore?.game?.away?.scoring || !boxScore?.game?.away?.scoring[score]?.runs && boxScore?.game?.away?.scoring[score]?.runs != 0 ">-</span> </td>
+              <td></td>
+              <td>{{ boxScore?.game?.away?.runs }}</td>
+              <td>{{ boxScore?.game?.away?.hits }}</td>
+              <td>{{ boxScore?.game?.away?.errors }}</td>
+            </tr>
+            <tr>
+              <td>{{ boxScore?.game?.home?.abbr }}</td>
+              <td *ngFor=" let score of [0,1,2,3,4,5,6,7,8] "><span *ngIf=" boxScore?.game?.away?.scoring && boxScore?.game?.home?.scoring[score]?.runs >= 0 ">{{ boxScore?.game?.home?.scoring[score]?.runs }}</span><span *ngIf=" !boxScore?.game?.away?.scoring || !boxScore?.game?.home?.scoring[score]?.runs && boxScore?.game?.home?.scoring[score]?.runs != 0 ">-</span> </td>
+              <td></td>
+              <td>{{ boxScore?.game?.home?.runs }}</td>
+              <td>{{ boxScore?.game?.home?.hits }}</td>
+              <td>{{ boxScore?.game?.home?.errors }}</td>
+            </tr>
+          </tbody>
 
-  <div>
-    <div class='team'><h4 [routerLink]='["/", boxScore?.game?.home?.id]'>{{ boxScore?.game?.home?.market }} {{ boxScore?.game?.home?.name }}</h4> ({{ boxScore?.game?.home?.win }} - {{ boxScore?.game?.home?.loss }})</div>
-    <div class='box'>{{ boxScore?.game?.home?.runs }}</div>
-    <div class='box'>{{ boxScore?.game?.home?.hits }}</div>
-    <div class='box'>{{ boxScore?.game?.home?.errors }}</div>
+        </table>
+      </div>
+      <div class="col-sm-1">
+        <p>B {{ boxScore?.game?.outcome?.count?.balls }}</p>
+        <p>S {{ boxScore?.game?.outcome?.count?.strikes }}</p>
+        <p>O {{ boxScore?.game?.outcome?.count?.outs }}</p>
+      </div>
+      <div class="col-sm-3">
+        <div>
+          <div class='box'><h5>{{ boxScore?.game?.home?.runs }}</h5></div>
+          <div class='team'><h4 [routerLink]='["/", boxScore?.game?.home?.id]'>{{ boxScore?.game?.home?.market }} </h4><h6>{{ boxScore?.game?.home?.name }}</h6> <p>({{ boxScore?.game?.home?.win }} - {{ boxScore?.game?.home?.loss }})</p></div>
+        </div>
+      </div>
+    </div>
   </div>
 
 </section>

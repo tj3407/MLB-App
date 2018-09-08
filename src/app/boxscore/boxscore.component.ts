@@ -30,7 +30,7 @@ export class BoxscoreComponent implements OnInit {
           this.errorMessage = null;
         }, 3000);
       }
-    )
+    );
   }
 
 }
