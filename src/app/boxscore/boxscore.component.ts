@@ -11,6 +11,21 @@ import 'rxjs/add/operator/switchMap';
 export class BoxscoreComponent implements OnInit {
   boxScore: any;
   errorMessage: string;
+  player: string;
+  positions = {
+    '1' : 'P',
+    '2' : 'C',
+    '3' : '1B',
+    '4' : '2B',
+    '5' : '3B',
+    '6' : 'SS',
+    '7' : 'LF',
+    '8' : 'CF',
+    '9' : 'RF',
+    '10' : 'DH',
+    '11' : 'PH',
+    '12' : 'PR'
+  };
   constructor(private dataService: DataService, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -31,6 +46,47 @@ export class BoxscoreComponent implements OnInit {
         }, 3000);
       }
     );
+  }
+
+  findPlayerAway(id) {
+    if (this.boxScore.game.away.lineup) {
+      this.player = this.boxScore.game.away.roster.find( function(player) {
+        return player.id === id;
+      });
+    }
+    return this.player;
+  }
+
+  findPlayerHome(id) {
+    if (this.boxScore.game.home.lineup) {
+      this.player = this.boxScore.game.home.roster.find( function(player) {
+        return player.id === id;
+      });
+    }
+    return this.player;
+  }
+
+  getPosition(pos) {
+    console.log(this.positions[pos]);
+    return this.positions[pos];
+  }
+
+  getStatsAway(id) {
+    if (this.boxScore.game.away.players) {
+      this.player = this.boxScore.game.away.players.find( function(player) {
+        return player.id === id;
+      });
+    }
+    return this.player;
+  }
+
+  getStatsHome(id) {
+    if (this.boxScore.game.home.players) {
+      this.player = this.boxScore.game.home.players.find( function(player) {
+        return player.id === id;
+      });
+    }
+    return this.player;
   }
 
 }

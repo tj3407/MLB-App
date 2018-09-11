@@ -1,8 +1,12 @@
 <section>
   <div class="container">
-    <div *ngIf=" boxScore?.game?.outcome?.current_inning_half === 'B' "><p>Bot {{ boxScore?.game?.outcome?.current_inning }}</p></div>
-    <div *ngIf=" boxScore?.game?.outcome?.current_inning_half === 'T' "><p>Top {{ boxScore?.game?.outcome?.current_inning }}</p></div>
-    <div *ngIf=" boxScore?.game?.final "><p>Final</p></div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div *ngIf=" boxScore?.game?.outcome?.current_inning_half === 'B' "><p>Bot {{ boxScore?.game?.outcome?.current_inning }}</p></div>
+        <div *ngIf=" boxScore?.game?.outcome?.current_inning_half === 'T' "><p>Top {{ boxScore?.game?.outcome?.current_inning }}</p></div>
+        <div *ngIf=" boxScore?.game?.final "><p>Final</p></div>
+      </div>
+    </div>
     <div class="row">
       <div class="col-sm-3">
         <div>
@@ -54,6 +58,27 @@
           <div class='box'><h5>{{ boxScore?.game?.home?.runs }}</h5></div>
           <div class='team'><h4 [routerLink]='["/", boxScore?.game?.home?.id]'>{{ boxScore?.game?.home?.market }} </h4><h6>{{ boxScore?.game?.home?.name }}</h6> <p>({{ boxScore?.game?.home?.win }} - {{ boxScore?.game?.home?.loss }})</p></div>
         </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+        <table class="table table-sm">
+          <tbody>
+            <tr *ngFor='let i of boxScore?.game?.away?.lineup; index as idx'>
+              <td *ngIf='idx != 0 && i.position != 1'><div class="row"><div class="col-sm-2">{{ getPosition(i.position) }}</div><div class="col-sm-7"> {{ findPlayerAway(i.id).preferred_name[0] }}. {{ findPlayerAway(i.id).last_name }}</div><div class="col-sm-3">{{ getStatsAway(i.id).statistics?.hitting?.overall?.onbase?.h }}-{{ getStatsAway(i.id).statistics?.hitting?.overall?.ab }} </div></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-sm-6"></div>
+      <div class="col-sm-3">
+        <table class="table table-sm">
+          <tbody>
+            <tr *ngFor='let i of boxScore?.game?.home?.lineup; index as idx'>
+              <td *ngIf='idx != 0 && i.position != 1'><div class="row"><div class="col-sm-2">{{ getPosition(i.position) }}</div><div class="col-sm-7"> {{ findPlayerHome(i.id).preferred_name[0] }}. {{ findPlayerHome(i.id).last_name }}</div><div class="col-sm-3">{{ getStatsHome(i.id).statistics?.hitting?.overall?.onbase?.h }}-{{ getStatsHome(i.id).statistics?.hitting?.overall?.ab }}</div></div></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

@@ -37,3 +37,7 @@ h4 {
 .col-sm-1 {
   margin-top: 20px;
 }
+
+.col-sm-7 {
+  text-align: left;
+}
