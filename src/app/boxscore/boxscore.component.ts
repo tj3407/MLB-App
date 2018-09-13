@@ -89,4 +89,9 @@ export class BoxscoreComponent implements OnInit {
     return this.player;
   }
 
+  sort(arr) {
+    return arr.sort(function(a, b) {
+      return a.order - b.order;
+    });
+  }
 }

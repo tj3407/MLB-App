@@ -64,8 +64,8 @@
       <div class="col-sm-3">
         <table class="table table-sm">
           <tbody>
-            <tr *ngFor='let i of boxScore?.game?.away?.lineup; index as idx'>
-              <td *ngIf='idx != 0 && i.position != 1'><div class="row"><div class="col-sm-2">{{ getPosition(i.position) }}</div><div class="col-sm-7"> {{ findPlayerAway(i.id).preferred_name[0] }}. {{ findPlayerAway(i.id).last_name }}</div><div class="col-sm-3">{{ getStatsAway(i.id).statistics?.hitting?.overall?.onbase?.h }}-{{ getStatsAway(i.id).statistics?.hitting?.overall?.ab }} </div></div></td>
+            <tr *ngFor='let i of sort(boxScore?.game?.away?.lineup)'>
+              <td *ngIf='i.order >= 1 && i.order <= 9'><div class="row"><div class="col-sm-2">{{ getPosition(i.position) }}</div><div class="col-sm-7"> {{ findPlayerAway(i.id).preferred_name[0] }}. {{ findPlayerAway(i.id).last_name }}</div><div class="col-sm-3">{{ getStatsAway(i.id).statistics?.hitting?.overall?.onbase?.h }}-{{ getStatsAway(i.id).statistics?.hitting?.overall?.ab }} </div></div></td>
             </tr>
           </tbody>
         </table>
@@ -74,8 +74,8 @@
       <div class="col-sm-3">
         <table class="table table-sm">
           <tbody>
-            <tr *ngFor='let i of boxScore?.game?.home?.lineup; index as idx'>
-              <td *ngIf='idx != 0 && i.position != 1'><div class="row"><div class="col-sm-2">{{ getPosition(i.position) }}</div><div class="col-sm-7"> {{ findPlayerHome(i.id).preferred_name[0] }}. {{ findPlayerHome(i.id).last_name }}</div><div class="col-sm-3">{{ getStatsHome(i.id).statistics?.hitting?.overall?.onbase?.h }}-{{ getStatsHome(i.id).statistics?.hitting?.overall?.ab }}</div></div></td>
+            <tr *ngFor='let i of boxScore?.game?.home?.lineup'>
+              <td *ngIf='i.order >= 1 && i.order <= 9'><div class="row"><div class="col-sm-2">{{ getPosition(i.position) }}</div><div class="col-sm-7"> {{ findPlayerHome(i.id).preferred_name[0] }}. {{ findPlayerHome(i.id).last_name }}</div><div class="col-sm-3">{{ getStatsHome(i.id).statistics?.hitting?.overall?.onbase?.h }}-{{ getStatsHome(i.id).statistics?.hitting?.overall?.ab }}</div></div></td>
             </tr>
           </tbody>
         </table>
