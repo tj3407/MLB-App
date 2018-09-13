@@ -5,6 +5,25 @@
   padding: 15px;
   margin: none;
 }
+.box1 {
+  display: inline-block;
+  vertical-align: top;
+  width: 23%;
+}
+.box2 {
+  display: inline-block;
+  vertical-align: top;
+  width: 38%;
+}
+
+.box3 {
+  display: inline-block;
+  vertical-align: top;
+  width: 5%;
+}
+.box3 p {
+  font-size: .7em;
+}
 .team {
   display: inline-block;
   vertical-align: top;
@@ -37,7 +56,6 @@ h4 {
 .col-sm-1 {
   margin-top: 20px;
 }
-
 .col-sm-7 {
   text-align: left;
 }
