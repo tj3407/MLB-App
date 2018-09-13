@@ -9,7 +9,10 @@
   margin: 20px;
   font-size: .9em;
 }
-
+#box:hover {
+  background-color: rgb(175, 175, 255);
+  cursor: pointer;
+}
 .table-borderless td,
 .table-borderless th {
     border: 0;
