@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class DataService {
   private base =
-  'https://cors-anywhere.herokuapp.com/http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/standings.json?api_key=xksck7ynayqv8zxpu3t67ted&callback=JSONP_CALLBACK';
+  'https://cors-anywhere.herokuapp.com/http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/standings.json?api_key=fc5aesmv546paz5vtd7sfk2n&callback=JSONP_CALLBACK';
 
   private basePlayers =
   'https://cors-anywhere.herokuapp.com/http://api.sportradar.us/mlb/trial/v6.5/en/teams';
@@ -32,20 +32,20 @@ export class DataService {
 
   getPlayers(id) {
     console.log(id);
-    return this.http.get(`${this.basePlayers}/${id}/profile.json?api_key=xksck7ynayqv8zxpu3t67ted`);
+    return this.http.get(`${this.basePlayers}/${id}/profile.json?api_key=fc5aesmv546paz5vtd7sfk2n`);
   }
 
   getPlayer(id) {
     console.log(id);
-    return this.http.get(`${this.basePlayer}/${id}/profile.json?api_key=xksck7ynayqv8zxpu3t67ted`);
+    return this.http.get(`${this.basePlayer}/${id}/profile.json?api_key=fc5aesmv546paz5vtd7sfk2n`);
   }
 
   getSchedule(date) {
     console.log(date);
-    return this.http.get(`${this.baseSchedule}/${date}/boxscore.json?api_key=xksck7ynayqv8zxpu3t67ted`);
+    return this.http.get(`${this.baseSchedule}/${date}/boxscore.json?api_key=fc5aesmv546paz5vtd7sfk2n`);
   }
 
   getBoxScore(gameId) {
-    return this.http.get(`${this.baseBoxScore}/${gameId}/summary.json?api_key=xksck7ynayqv8zxpu3t67ted`);
+    return this.http.get(`${this.baseBoxScore}/${gameId}/summary.json?api_key=fc5aesmv546paz5vtd7sfk2n`);
   }
 }
