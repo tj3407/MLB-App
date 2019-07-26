@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class DataService {
   private base =
-  'https://cors-anywhere.herokuapp.com/http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/standings.json?api_key=fc5aesmv546paz5vtd7sfk2n&callback=JSONP_CALLBACK';
+  'https://cors-anywhere.herokuapp.com/http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2019/REG/standings.json?api_key=fc5aesmv546paz5vtd7sfk2n&callback=JSONP_CALLBACK';
 
   private basePlayers =
   'https://cors-anywhere.herokuapp.com/http://api.sportradar.us/mlb/trial/v6.5/en/teams';
